@@ -1,0 +1,30 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: sp-hello
+spec:
+  replicas: 1 
+  template:
+    metadata:
+      labels:
+        app: sp-hello
+    spec:
+      containers:
+      - name: sp-hello-pod
+        image: ghcr.io/ignaciyl/sp-hello:1.0
+        ports: 
+        - containerPort: 8080
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: sp-hello-service
+spec:
+  selector:
+    app: sp-hello
+  ports:
+  - name: http
+    protocol: TCP
+    port: 80
+    targetPort: 8080
+  type: LoadBalancer
