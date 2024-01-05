@@ -1,9 +1,14 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: sp-hello
+  name:  sp-hello
+  labels:
+    app:  sp-hello
 spec:
-  replicas: 1 
+  replicas: 1
+  selector:
+    matchLabels:
+      app: sp-hello
   template:
     metadata:
       labels:
@@ -12,7 +17,7 @@ spec:
       containers:
       - name: sp-hello-pod
         image: ghcr.io/ignaciyl/sp-hello:1.0
-        ports: 
+        ports:
         - containerPort: 8080
 ---
 apiVersion: v1
