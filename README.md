@@ -23,7 +23,7 @@ curl http://localhost:8090/info
 
 Subir la imagen
 ```
-docker login ghcr.io -u ignaciyl
-docker tag sp-hello:1.0 ghcr.io/ignaciyl/sp-hello:1.0 
-docker push ghcr.io/ignaciyl/sp-hello:1.0 
+docker login ghcr.io -u ignaciylipm
+docker tag sp-hello:1.0 ghcr.io/ignaciylipm/sp-hello:1.0 
+docker push ghcr.io/ignaciylipm/sp-hello:1.0 
 ```
